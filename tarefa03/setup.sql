@@ -92,10 +92,15 @@ INSERT INTO emprestimos (livro_id, data_emprestimo, devolvido) VALUES
 (2, '2026-10-22', FALSE),
 (3, '2026-10-25', TRUE);
 
+-- Remocao dos usuarios existentes, se houver
+DROP USER IF EXISTS 'app_biblioteca'@'%';
+DROP USER IF EXISTS 'consulta'@'%';
+DROP USER IF EXISTS 'relatorios'@'%';
+
 -- Criacao dos usuarios
-CREATE USER IF NOT EXISTS 'app_biblioteca'@'%' IDENTIFIED BY 'AppBib2026!';
-CREATE USER IF NOT EXISTS 'consulta'@'%' IDENTIFIED BY 'Consulta2026!';
-CREATE USER IF NOT EXISTS 'relatorios'@'%' IDENTIFIED BY 'Relatorios2026!';
+CREATE USER 'app_biblioteca'@'%' IDENTIFIED BY 'AppBib2026!';
+CREATE USER 'consulta'@'%' IDENTIFIED BY 'Consulta2026!';
+CREATE USER 'relatorios'@'%' IDENTIFIED BY 'Relatorios2026!';
 
 -- Permissoes
 GRANT SELECT, INSERT, UPDATE, DELETE
